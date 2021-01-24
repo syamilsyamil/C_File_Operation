@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    /**/
+    ///Define File Directories a.k.a file pointer
+    FILE*fileDirectory;
+    /**/
+    ///Define variables
+    char filePATH[] = "C:\\Users\\ASUS\\Desktop\\C\\File_Operation\\agro.txt";
+    char file_READ_METHOD[] = "r";
+    char errMsg[] = "File does not exist hence no way to read it!";
+    char singleLine[150];
+
+    ///File Read Method Takes Place
+    fileDirectory = fopen(filePATH,file_READ_METHOD);
+    if(fileDirectory==NULL){
+        printf("%s",errMsg);
+        exit(1);
+    }else{
+        while(!feof(fileDirectory)){
+        fgets(singleLine,150,fileDirectory);
+        puts(singleLine);
+        }
+    }
+    fclose(fileDirectory);
+    return 0;
+}
