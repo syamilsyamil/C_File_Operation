@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    /**/
+    ///Define File Directories a.k.a file pointer
+    FILE*fileDirectory;
+    FILE*fileCreate_Directory;
+    /**/
+    ///Define variables
+    char filePATH[] = "C:\\Users\\ASUS\\Desktop\\C\\File_Operation\\agro.txt";
+    char file_READ_METHOD[] = "r";
+    char file_WRITE_METHOD[] = "w";
+    char file_APPEND_METHOD[] = "a";
+    char errMsg[] = "This file is not exist! Hence this file will be created!";
+    char badMsg[] = "This file is already exist!";
+    char myContent[] = "Hello World";
+    char mySecContent[] = "Hello World2";
+
+    ///File Write Methods take place
+    fileDirectory=fopen(filePATH,file_READ_METHOD);
+    if(fileDirectory==NULL){
+        printf("%s",errMsg);
+        fileCreate_Directory=fopen(filePATH,file_WRITE_METHOD);
+        fprintf(fileCreate_Directory,"%s",myContent);
+    }else{
+        printf("%s",badMsg);
+        fileCreate_Directory=fopen(filePATH,file_APPEND_METHOD);
+        fprintf(fileCreate_Directory,"\n%s",mySecContent);
+    }
+    fclose(fileDirectory);
+    return 0;
+}
