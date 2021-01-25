@@ -19,9 +19,8 @@ int main()
         printf("%s",errMsg);
         exit(1);
     }else{
-        while(!feof(fileDirectory)){
-        fgets(singleLine,150,fileDirectory);
-        puts(singleLine);
+        while(fgets(singleLine,150,fileDirectory)){
+            printf("%s",singleLine);
         }
     }
     fclose(fileDirectory);
